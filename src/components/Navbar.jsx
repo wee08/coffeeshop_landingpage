@@ -1,27 +1,24 @@
-import React from "react";
-import { Link } from "react-router";
-
 const Navbar = () => {
   const navbars = [
-    { title: "Home", path: "#" },
-    { title: "Story", path: "#" },
-    { title: "Menu", path: "#" },
-    { title: "Location", path: "#" },
-    { title: "Contact", path: "#" },
+    { title: "Home", path: "home" },
+    { title: "Story", path: "story" },
+    { title: "Menu", path: "menu" },
+    { title: "Location", path: "location" },
+    { title: "Contact", path: "contact" },
   ];
 
   return (
-    <>
+    <nav>
       <div className="flex justify-around text-nav max-w-174 mx-auto mt-20">
         {navbars.map((nav, idx) => (
           <div key={idx}>
-            <Link className="cursor-pointer text-primary" to={nav.path}>
+            <a className="cursor-pointer text-primary" href={`#${nav.path}`}>
               {nav.title}
-            </Link>
+            </a>
           </div>
         ))}
       </div>
-    </>
+    </nav>
   );
 };
 

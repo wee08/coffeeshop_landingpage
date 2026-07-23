@@ -7,9 +7,11 @@ const Home = () => {
         <Title
           title={"ICED COFFEE"}
           des={"Refresh yourself with our drink in the city"}
+          w={"auto"}
+          align={"center"}
         />
         <a
-          className="bg-btnprimary  w-89 h-20.5 text-nav flex items-center justify-center text-white border-[5px] border-primary rounded-full my-primary"
+          className="bg-btnprimary  w-89 h-20.5 text-nav flex items-center justify-center text-white border-[5px] border-primary rounded-full mb-primary"
           href="#">
           Grab Now
         </a>
