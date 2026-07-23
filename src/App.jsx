@@ -1,10 +1,12 @@
 import Navbar from "./components/Navbar";
 import Home from "./components/page/Home";
 import Story from "./components/page/Story";
+import Menu from "./components/page/Menu";
 const App = () => {
   const components = [
     { item: <Home />, id: "home" },
     { item: <Story />, id: "story" },
+    { item: <Menu />, id: "menu" },
   ];
 
   return (

@@ -6,15 +6,15 @@ import lemon from "../../assets/img/hot_lemon.png";
 import milk from "../../assets/img/hot_milk.png";
 import matcha from "../../assets/img/hot_matcha.png";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, TextCursor } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 const Menu = () => {
   const drinks = [
-    { src: latte, alt: "hot latte" },
-    { src: choco, alt: "hot chocolate" },
-    { src: americano, alt: "hot americano" },
-    { src: lemon, alt: "hot lemon" },
-    { src: milk, alt: "hot milk" },
-    { src: matcha, alt: "hot matcha" },
+    { src: latte, name: "hot latte" },
+    { src: choco, name: "hot chocolate" },
+    { src: americano, name: "hot americano" },
+    { src: lemon, name: "hot lemon" },
+    { src: milk, name: "hot milk" },
+    { src: matcha, name: "hot matcha" },
   ];
 
   const [index, setIndex] = useState(0);
@@ -27,20 +27,21 @@ const Menu = () => {
         w={"auto"}
         text={"center"}
       />
-      <div className="mx-auto justify-center">
+      <div className="mx-auto text-primary flex flex-col justify-center items-center ">
         <div className="items-center">
           <img className="w-117.5" src={latte} alt="" />
         </div>
-        <div>
+        <div className="w-171 flex items-center justify-center ">
           <ChevronLeft
-            size={80}
-            strokeWidth={2}
+            size={48}
+            strokeWidth={3}
             color="#432818"
             className="cursor-pointer hover:scale-120 transition-all  duration-100"
           />
+          <p className="font-semibold text-[64px] mx-21.25">Hot latte</p>
           <ChevronRight
-            size={80}
-            strokeWidth={2}
+            size={48}
+            strokeWidth={3}
             color="#432818"
             className="cursor-pointer hover:scale-120 transition-all  duration-100"
           />
