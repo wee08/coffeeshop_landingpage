@@ -6,10 +6,16 @@ const Story = () => {
   return (
     <>
       <Title title={"Story"} des={des} w={"252.5"} align={"justify"} />
-      <div className="w-full">
+      <div className="w-full flex justify-between text-nav">
         <p>We make coffee with passion</p>
-        <div className="w-205.75 h-151 overflow-hidden">
-          <video src={vdo} autoPlay loop muted typeof="video/mp4"></video>
+        <div className="w-205.75 h-151 overflow-hidden rounded-[50px]">
+          <video
+            className="w-full h-full object-cover "
+            src={vdo}
+            autoPlay
+            loop
+            muted
+            typeof="video/mp4"></video>
         </div>
       </div>
     </>
