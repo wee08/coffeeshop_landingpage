@@ -1,4 +1,13 @@
+@font-face {
+  font-family: Azeretmono;
+  src: url("./assets/fonts/AzeretMono-Regular.ttf");
+}
 @import "tailwindcss";
 @theme {
   --text-nav: 24px;
+
+  --font-mono: Azeretmono, "sans-serif";
+
+  --text-primary: #432818;
+  --color-btnprimary: #6f1d1b;
 }
