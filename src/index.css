@@ -5,9 +5,10 @@
 @import "tailwindcss";
 @theme {
   --text-nav: 24px;
+  --text-header: 108px;
 
   --font-mono: Azeretmono, "sans-serif";
 
-  --text-primary: #432818;
+  --color-primary: #432818;
   --color-btnprimary: #6f1d1b;
 }

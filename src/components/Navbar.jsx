@@ -12,10 +12,10 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex justify-around text-nav min-w-93  ">
+      <div className="flex justify-around text-nav max-w-174 mx-auto mt-20">
         {navbars.map((nav, idx) => (
           <div key={idx}>
-            <Link className="cursor-pointer" to={nav.path}>
+            <Link className="cursor-pointer text-primary" to={nav.path}>
               {nav.title}
             </Link>
           </div>
