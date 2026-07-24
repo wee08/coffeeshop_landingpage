@@ -9,35 +9,19 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 const Carousel = () => {
   const drinks = [
-    { src: latte, name: "hot latte" },
     { src: choco, name: "hot chocolate" },
     { src: americano, name: "hot americano" },
     { src: lemon, name: "hot lemon" },
+    { src: latte, name: "hot latte" },
     { src: milk, name: "hot milk" },
     { src: matcha, name: "hot matcha" },
     { src: herbtea, name: "hot herb tea" },
   ];
+  const [startIndex, setStartIndex] = useState(0);
+  const rotateDrinks = drinks.map(
+    (_, i) => drinks[(startIndex + i) % drinks.length],
+  );
 
-  let [index, setIndex] = useState(0);
-
-  const [toggleIdx, setToggleIdx] = useState(null);
-  const handleChevronLeft = () => {
-    setIndex((prev) => (prev === 0 ? max_idx : prev - 1));
-    if (toggleIdx > drinks.length) {
-      setToggleIdx(0);
-    } else if (toggleIdx < 0) {
-      setToggleIdx(drinks.length);
-    }
-  };
-  const handleChevronRight = () => {
-    setIndex((prev) => (prev === max_idx ? 0 : prev + 1));
-    if (toggleIdx > drinks.length) {
-      setToggleIdx(0);
-    } else if (toggleIdx < 0) {
-      setToggleIdx(drinks.length);
-    }
-  };
-  const max_idx = drinks.length - 1;
   const midIdx = Math.floor(drinks.length / 2);
 
   const POSITIONS = {
@@ -49,28 +33,35 @@ const Carousel = () => {
     [-3]: { x: 350, y: -70 },
     [3]: { x: -350, y: -70 },
   };
+  const handleChevronRight = () =>
+    setStartIndex((prev) => (prev + 1) % drinks.length);
+
+  const handleChevronLeft = () =>
+    setStartIndex((prev) => (prev - 1 + drinks.length) % drinks.length);
 
   return (
-    <div className="mx-auto text-primary flex flex-col justify-center items-center ">
-      <div className="flex  items-center justify-center w-284.25 h-210.25 relative">
-        {drinks.map((item, idx) => {
-          const offset = idx - midIdx;
-          const pos = POSITIONS[offset] ?? { x: 0, y: -300 };
+    <div className="mx-auto text-primary flex flex-col justify-center items-center font-mono font-extralight  ">
+      <div className="grid grid-cols-7 grid-rows-5 place-items-center w-284.25 h-210.25 mb-20 ">
+        {rotateDrinks.map((item, idx) => {
           return (
-            <img
+            <div
               key={idx}
-              className=" w-40  transition-all duration-300 ease-in-out"
-              src={item.src}
-              alt={item.name}
-              style={{
-                transform: `${`translate(${pos.x}px,${pos.y}px)`}`,
-                zIndex: offset === 0 ? 10 : 5 - Math.abs(offset),
-              }}
-            />
+              className={`content-center ${
+                idx === midIdx ? "col-4 row-5 w-117.5"
+                : idx === 4 ? "col-7 row-4 w-[350px] blur-[1.2px]"
+                : idx === 5 ? "col-6 row-2 w-[270px] blur-[1.8px]"
+                : idx === 6 ? "col-3 row-1 w-[170px] blur-[2px]"
+                : idx === 2 ? "col-5 row-1 w-[170px] blur-[2px]"
+                : idx === 0 ? "col-2 row-2 w-[270px] blur-[1.8px]"
+                : idx === 1 ? "col-1 row-4 w-[350px] blur-[1.2px]"
+                : ""
+              }`}>
+              <img className="items-center w-full" src={item.src} alt="" />
+            </div>
           );
         })}
       </div>
-      <div className="w-180 flex items-center justify-between ">
+      <div className="w-180 flex items-center justify-between mt-12">
         <ChevronLeft
           size={48}
           strokeWidth={3}
@@ -78,7 +69,7 @@ const Carousel = () => {
           className="cursor-pointer hover:scale-120 transition-all  duration-100"
           onClick={handleChevronLeft}
         />
-        <p className="font-medium text-[60px] ">{drinks[index].name}</p>
+        <p className="font-medium text-[60px] ">{rotateDrinks[midIdx].name}</p>
         <ChevronRight
           size={48}
           strokeWidth={3}
