@@ -26,15 +26,6 @@ const Carousel = () => {
 
   const midIdx = Math.floor(drinks.length / 2);
 
-  const POSITIONS = {
-    0: { x: 0, y: 300 },
-    [-1]: { x: -100, y: 200 },
-    [1]: { x: 100, y: 200 },
-    [-2]: { x: 30, y: 50 },
-    [2]: { x: -30, y: 50 },
-    [-3]: { x: 350, y: -70 },
-    [3]: { x: -350, y: -70 },
-  };
   const handleChevronRight = () =>
     setStartIndex((prev) => (prev + 1) % drinks.length);
   const handleChevronLeft = () =>
@@ -53,15 +44,19 @@ const Carousel = () => {
   return (
     <div className="mx-auto text-primary flex flex-col justify-center items-center font-mono font-extralight  ">
       <div className="grid grid-cols-7 grid-rows-5 place-items-center w-284.25 h-210.25 mb-20 transition-all duration-300 ease-in">
-        {rotateDrinks.map((item, idx) => {
-          return (
-            <div
-              key={idx}
-              className={`content-center  ${getPositionClass(idx)}`}>
-              <img className="items-center w-full" src={item.src} alt="" />
-            </div>
-          );
-        })}
+        {rotateDrinks.map((item, idx) => (
+          <motion.div
+            key={item.name}
+            layout
+            transition={{ type: "spring", stiffness: 260, damping: 26 }}
+            className={`content-center  ${getPositionClass(idx)}`}>
+            <img
+              className="items-center w-full"
+              src={item.src}
+              alt={`${item.name}`}
+            />
+          </motion.div>
+        ))}
       </div>
       <div className="w-180 flex items-center justify-between mt-12">
         <ChevronLeft
