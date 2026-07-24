@@ -42,7 +42,7 @@ const Carousel = () => {
     : "";
 
   return (
-    <div className="mx-auto text-primary flex flex-col justify-center items-center font-mono font-extralight  ">
+    <div className="mx-auto text-primary flex flex-col justify-center items-center font-mono font-extralight">
       <div className="grid grid-cols-7 grid-rows-5 place-items-center w-284.25 h-210.25 mb-20 transition-all duration-300 ease-in">
         {rotateDrinks.map((item, idx) => (
           <motion.div
