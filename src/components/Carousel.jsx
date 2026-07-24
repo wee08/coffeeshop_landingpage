@@ -5,8 +5,10 @@ import lemon from "../assets/img/hot_lemon.png";
 import milk from "../assets/img/hot_milk.png";
 import matcha from "../assets/img/hot_matcha.png";
 import herbtea from "../assets/img/hot_herbtea.png";
+
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion } from "motion/react";
 const Carousel = () => {
   const drinks = [
     { src: choco, name: "hot chocolate" },
@@ -35,27 +37,27 @@ const Carousel = () => {
   };
   const handleChevronRight = () =>
     setStartIndex((prev) => (prev + 1) % drinks.length);
-
   const handleChevronLeft = () =>
     setStartIndex((prev) => (prev - 1 + drinks.length) % drinks.length);
 
+  const getPositionClass = (idx) =>
+    idx === midIdx ? "col-4 row-5 w-117.5"
+    : idx === 4 ? "col-7 row-4 w-[350px] blur-[1.2px]"
+    : idx === 5 ? "col-6 row-2 w-[270px] blur-[1.8px]"
+    : idx === 6 ? "col-3 row-1 w-[170px] blur-[2px]"
+    : idx === 2 ? "col-5 row-1 w-[170px] blur-[2px]"
+    : idx === 0 ? "col-2 row-2 w-[270px] blur-[1.8px]"
+    : idx === 1 ? "col-1 row-4 w-[350px] blur-[1.2px]"
+    : "";
+
   return (
     <div className="mx-auto text-primary flex flex-col justify-center items-center font-mono font-extralight  ">
-      <div className="grid grid-cols-7 grid-rows-5 place-items-center w-284.25 h-210.25 mb-20 ">
+      <div className="grid grid-cols-7 grid-rows-5 place-items-center w-284.25 h-210.25 mb-20 transition-all duration-300 ease-in">
         {rotateDrinks.map((item, idx) => {
           return (
             <div
               key={idx}
-              className={`content-center ${
-                idx === midIdx ? "col-4 row-5 w-117.5"
-                : idx === 4 ? "col-7 row-4 w-[350px] blur-[1.2px]"
-                : idx === 5 ? "col-6 row-2 w-[270px] blur-[1.8px]"
-                : idx === 6 ? "col-3 row-1 w-[170px] blur-[2px]"
-                : idx === 2 ? "col-5 row-1 w-[170px] blur-[2px]"
-                : idx === 0 ? "col-2 row-2 w-[270px] blur-[1.8px]"
-                : idx === 1 ? "col-1 row-4 w-[350px] blur-[1.2px]"
-                : ""
-              }`}>
+              className={`content-center  ${getPositionClass(idx)}`}>
               <img className="items-center w-full" src={item.src} alt="" />
             </div>
           );
