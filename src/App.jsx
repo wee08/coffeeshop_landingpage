@@ -12,7 +12,9 @@ const App = () => {
   return (
     <>
       <div className="mx-12.5 my-10.5 max-w-360 max-h-1877.25 font-mono ">
-        <Navbar />
+        <div className="sticky top-0 overflow-hidden">
+          <Navbar />
+        </div>
         {components.map((i, idx) => (
           <section className="" key={idx} id={i.id}>
             {i.item}
