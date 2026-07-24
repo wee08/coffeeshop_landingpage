@@ -20,11 +20,22 @@ const Carousel = () => {
 
   let [index, setIndex] = useState(0);
 
+  const [toggleIdx, setToggleIdx] = useState(null);
   const handleChevronLeft = () => {
     setIndex((prev) => (prev === 0 ? max_idx : prev - 1));
+    if (toggleIdx > drinks.length) {
+      setToggleIdx(0);
+    } else if (toggleIdx < 0) {
+      setToggleIdx(drinks.length);
+    }
   };
   const handleChevronRight = () => {
     setIndex((prev) => (prev === max_idx ? 0 : prev + 1));
+    if (toggleIdx > drinks.length) {
+      setToggleIdx(0);
+    } else if (toggleIdx < 0) {
+      setToggleIdx(drinks.length);
+    }
   };
   const max_idx = drinks.length - 1;
   const midIdx = Math.floor(drinks.length / 2);
@@ -33,8 +44,8 @@ const Carousel = () => {
     0: { x: 0, y: 300 },
     [-1]: { x: -100, y: 200 },
     [1]: { x: 100, y: 200 },
-    [-2]: { x: 30, y: 80 },
-    [2]: { x: -30, y: 80 },
+    [-2]: { x: 30, y: 50 },
+    [2]: { x: -30, y: 50 },
     [-3]: { x: 350, y: -70 },
     [3]: { x: -350, y: -70 },
   };
@@ -53,6 +64,7 @@ const Carousel = () => {
               alt={item.name}
               style={{
                 transform: `${`translate(${pos.x}px,${pos.y}px)`}`,
+                zIndex: offset === 0 ? 10 : 5 - Math.abs(offset),
               }}
             />
           );
