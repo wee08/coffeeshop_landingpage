@@ -29,11 +29,22 @@ const Carousel = () => {
   const max_idx = drinks.length - 1;
   const midIdx = Math.floor(drinks.length / 2);
 
+  const POSITIONS = {
+    0: { x: 0, y: 300 },
+    [-1]: { x: -100, y: 200 },
+    [1]: { x: 100, y: 200 },
+    [-2]: { x: 30, y: 80 },
+    [2]: { x: -30, y: 80 },
+    [-3]: { x: 350, y: -70 },
+    [3]: { x: -350, y: -70 },
+  };
+
   return (
     <div className="mx-auto text-primary flex flex-col justify-center items-center ">
       <div className="flex  items-center justify-center w-284.25 h-210.25 relative">
         {drinks.map((item, idx) => {
-          const offset = idx - index;
+          const offset = idx - midIdx;
+          const pos = POSITIONS[offset] ?? { x: 0, y: -300 };
           return (
             <img
               key={idx}
@@ -41,16 +52,7 @@ const Carousel = () => {
               src={item.src}
               alt={item.name}
               style={{
-                transform: `${
-                  idx === midIdx ? "translate(0px,300px)"
-                  : idx === 2 ? "translate(-100px,200px)"
-                  : idx === 4 ? "translate(100px,200px)"
-                  : idx === 1 ? "translate(30px,80px)"
-                  : idx === 5 ? "translate(-30px,80px)"
-                  : idx === 0 ? "translate(350px,-70px)"
-                  : idx === 6 ? "translate(-350px,-70px)"
-                  : ""
-                }`,
+                transform: `${`translate(${pos.x}px,${pos.y}px)`}`,
               }}
             />
           );
