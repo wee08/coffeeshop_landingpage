@@ -4,6 +4,7 @@ import choco from "../assets/img/hot_choco.png";
 import lemon from "../assets/img/hot_lemon.png";
 import milk from "../assets/img/hot_milk.png";
 import matcha from "../assets/img/hot_matcha.png";
+import herbtea from "../assets/img/hot_herbtea.png";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 const Carousel = () => {
@@ -14,27 +15,46 @@ const Carousel = () => {
     { src: lemon, name: "hot lemon" },
     { src: milk, name: "hot milk" },
     { src: matcha, name: "hot matcha" },
+    { src: herbtea, name: "hot herb tea" },
   ];
 
   let [index, setIndex] = useState(0);
 
-  if (index >= drinks.length - 1) {
-    setIndex(0);
-  }
   const handleChevronLeft = () => {
-    setIndex((index) => index - 1);
+    setIndex((prev) => (prev === 0 ? max_idx : prev - 1));
   };
   const handleChevronRight = () => {
-    setIndex((index) => index + 1);
+    setIndex((prev) => (prev === max_idx ? 0 : prev + 1));
   };
+  const max_idx = drinks.length - 1;
+  const midIdx = Math.floor(drinks.length / 2);
+
   return (
     <div className="mx-auto text-primary flex flex-col justify-center items-center ">
-      <div className="items-center">
-        <img
-          className="w-117.5"
-          src={drinks[index].src}
-          alt={drinks[index].name}
-        />
+      <div className="flex  items-center justify-center w-284.25 h-210.25 relative">
+        {drinks.map((item, idx) => {
+          const offset = idx - index;
+          return (
+            <img
+              key={idx}
+              className=" w-40  transition-all duration-300 ease-in-out"
+              src={item.src}
+              alt={item.name}
+              style={{
+                transform: `${
+                  idx === midIdx ? "translate(0px,300px)"
+                  : idx === 2 ? "translate(-100px,200px)"
+                  : idx === 4 ? "translate(100px,200px)"
+                  : idx === 1 ? "translate(30px,80px)"
+                  : idx === 5 ? "translate(-30px,80px)"
+                  : idx === 0 ? "translate(350px,-70px)"
+                  : idx === 6 ? "translate(-350px,-70px)"
+                  : ""
+                }`,
+              }}
+            />
+          );
+        })}
       </div>
       <div className="w-180 flex items-center justify-between ">
         <ChevronLeft
