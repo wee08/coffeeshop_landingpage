@@ -1,5 +1,6 @@
 import Carousel from "../Carousel";
 import Title from "../Title";
+import MenuHero from "./MenuHero";
 
 const Menu = () => {
   return (
@@ -11,6 +12,7 @@ const Menu = () => {
         text={"center"}
       />
       <Carousel />
+      <MenuHero />
     </>
   );
 };

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { pre } from "motion/react-client";
 const Navbar = () => {
   const navbars = [
     { title: "Home", path: "home" },
@@ -25,7 +24,7 @@ const Navbar = () => {
   }, []);
 
   const showBgClass =
-    "transition-all duration-300 ease bg-navbg/30 backdrop-blur-xs border border-white/90 rounded-full";
+    " transition-all duration-300 ease bg-navbg/30 backdrop-blur-xs border border-white/90 rounded-full";
   const hoverClass =
     "relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-primary after:scale-x-0 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100";
   const handleMouseEnter = (e) => {
@@ -40,7 +39,7 @@ const Navbar = () => {
   return (
     <nav>
       <div
-        className={`flex justify-around text-nav max-w-200 px-10 py-1 mx-auto mt-20 
+        className={`flex justify-around text-nav max-w-200 px-10 py-1 mx-auto mt-10 
         ${isShowBg ? showBgClass : ""}
         `}>
         {navbars.map((nav, idx) => (

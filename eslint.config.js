@@ -18,6 +18,7 @@ export default defineConfig([
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
     rules: {
+      "tailwindcss/no-custom-classname": "off",
       "no-unused-vars": [
         "warn",
         {
