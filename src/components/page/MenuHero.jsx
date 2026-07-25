@@ -1,5 +1,6 @@
 import { Clock3, ThumbsUp } from "lucide-react";
 import coffee from "../../assets/img/model_drink.png";
+import vdo from "../../assets/vid/stock_vdo.mp4";
 const MenuHero = () => {
   const info = [
     {
@@ -23,11 +24,15 @@ const MenuHero = () => {
       <div className="grid grid-cols-2 grid-rows-2 w-[1350px] h-[610px] my-20 gap-20 ">
         <div
           className="w-[658px] h-[583px] rounded-[50px] bg-[#D9D9D9] 
-        flex justify-center items-center">
-          <img
-            className="grid-span-2 w-[505px] h-[505px] rotate-14"
-            src={coffee}
-            alt=""
+        flex justify-center items-center overflow-hidden">
+          <video
+            className="grid-span-2 object-cover h-full"
+            autoPlay
+            loop
+            muted
+            src={vdo}
+            alt="coffee making"
+            typeof="video/mp4"
           />
         </div>
         <div className="w-[626px] h-auto row-span-2 place-content-center">
