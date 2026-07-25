@@ -4,11 +4,21 @@ import Fb from "../../assets/svg/square-f-stroke-rounded.svg?react";
 import Tt from "../../assets/svg/tiktok-stroke-rounded.svg?react";
 const Contact = () => {
   const contacts = [
-    { icon: <Ig />, name: "iced_coffee" },
-    { icon: <Tt />, name: "iced_coffee" },
+    {
+      icon: <Ig />,
+      name: "iced_coffee",
+      target: "#",
+    },
+    {
+      icon: <Tt />,
+      name: "iced_coffee",
+      target:
+        "https://www.tiktok.com/@coconut._080?is_from_webapp=1&sender_device=pc",
+    },
     {
       icon: <Fb />,
       name: "iced_coffee",
+      target: "#",
     },
   ];
   return (
@@ -19,7 +29,9 @@ const Contact = () => {
             {contacts.map((item, idx) => (
               <div key={idx} className="flex items-center gap-5 my-2">
                 <div>{item.icon}</div>
-                <p className="text-white text-nav">{item.name}</p>
+                <a className="text-white text-nav" href={item.target}>
+                  {item.name}
+                </a>
               </div>
             ))}
           </div>

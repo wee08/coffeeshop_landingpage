@@ -5,11 +5,13 @@ const Location = () => {
   const icons = [
     {
       icon: <MapPinIcon width={51} height={51} strokeWidth={2} />,
-      info: "Toul Kork, Phnom Penh",
+      loc: "Toul Kork, Phnom Penh",
+      target: "#",
     },
     {
       icon: <MapPinIcon width={51} height={51} strokeWidth={2} />,
-      info: "Sen Sok, Phnom Penh",
+      loc: "Sen Sok, Phnom Penh",
+      target: "#",
     },
   ];
 
@@ -22,7 +24,9 @@ const Location = () => {
             <div key={idx} className="mb-10">
               <div className="flex items-center justify-start  gap-10">
                 {item.icon}
-                <p className="text-nav">{item.info}</p>
+                <a className="text-nav" href={item.target}>
+                  {item.loc}
+                </a>
               </div>
             </div>
           ))}
