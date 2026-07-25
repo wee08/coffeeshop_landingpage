@@ -36,6 +36,9 @@ const Contact = () => {
       <div className="absolute bottom-0 inset-e-0 opacity-30">
         <img className=" size-[191px] " src={pattern} alt="" />
       </div>
+      <p className="absolute bottom-0 inset-s-0 text-white ml-6 mb-4 opacity-20">
+        copyright seanmanuntithya 2026
+      </p>
     </div>
   );
 };
