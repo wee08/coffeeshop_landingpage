@@ -1,5 +1,6 @@
 import Carousel from "../Carousel";
 import Title from "../Title";
+import Inspiration from "./Inspiration";
 import MenuHero from "./MenuHero";
 
 const Menu = () => {
@@ -13,6 +14,7 @@ const Menu = () => {
       />
       <Carousel />
       <MenuHero />
+      <Inspiration />
     </>
   );
 };
