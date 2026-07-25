@@ -2,11 +2,13 @@ import Navbar from "./components/Navbar";
 import Home from "./components/page/Home";
 import Story from "./components/page/Story";
 import Menu from "./components/page/Menu";
+import Location from "./components/page/Location";
 const App = () => {
   const components = [
     { item: <Home />, id: "home" },
     { item: <Story />, id: "story" },
     { item: <Menu />, id: "menu" },
+    { item: <Location />, id: "location" },
   ];
 
   return (
