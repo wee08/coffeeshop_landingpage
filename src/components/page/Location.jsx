@@ -32,11 +32,7 @@ const Location = () => {
           ))}
         </div>
         <div className="text-primary w-[791px] h-[520px] rounded-[50px] flex items-center overflow-hidden col-2 row-1">
-          <img
-            className="w-[1000px] h-auto object-bottom-right"
-            src={loc}
-            alt=""
-          />
+          <img className="w-full h-auto " src={loc} alt="" />
         </div>
       </div>
     </>

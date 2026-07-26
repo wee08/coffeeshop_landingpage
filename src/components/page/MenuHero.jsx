@@ -1,5 +1,4 @@
 import { Clock3, ThumbsUp } from "lucide-react";
-import coffee from "../../assets/img/model_drink.png";
 import vdo from "../../assets/vid/stock_vdo.mp4";
 const MenuHero = () => {
   const info = [

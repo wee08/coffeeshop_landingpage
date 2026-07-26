@@ -4,7 +4,7 @@ import choco from "../assets/img/hot_choco.png";
 import lemon from "../assets/img/hot_lemon.png";
 import milk from "../assets/img/hot_milk.png";
 import matcha from "../assets/img/hot_matcha.png";
-import herbtea from "../assets/img/hot_herbtea.png";
+import herbtea from "../assets/img/hot_tea.png";
 
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
